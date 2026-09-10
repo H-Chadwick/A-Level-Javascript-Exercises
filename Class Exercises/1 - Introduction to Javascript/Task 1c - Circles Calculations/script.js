@@ -10,11 +10,11 @@ function calculateCircle() {
     // 3. Display both results in their respective span elements
     // Note: Use Math.PI for the value of π
 
-    let radius = parseInt(document.getElementById('radius'));
+    let radius = parseFloat(document.getElementById('radius').value);
 
-    let circumference = 2 * 3.17 * radius;
-    let area = 3.17 * radius ^ 2;
+    let circumference = Math.PI * (2 * radius);
+    let area = Math.PI * (radius * radius);
 
-    document.getElementById('circumference').textContent = circumference
-    document.getElementById('area').textContent = area
+    document.getElementById('circumference').textContent = Math.round(circumference)
+    document.getElementById('area').textContent = Math.round(area)
 }
