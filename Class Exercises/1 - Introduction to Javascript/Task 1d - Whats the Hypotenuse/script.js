@@ -13,7 +13,7 @@ function calculateHypotenuse() {
     let sideA = parseFloat(document.getElementById('sideA').value);
     let sideB = parseFloat(document.getElementById('sideB').value);
 
-    let hypotenuse =  Math.sqrt(sideA + sideB);
+    let hypotenuse =  Math.sqrt(sideA * sideA + sideB * sideB);
 
     document.getElementById('hypotenuse').textContent = hypotenuse
 
