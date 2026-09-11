@@ -8,4 +8,12 @@ function calculateHireCharge() {
     //    - Mileage charge (5p per mile = £0.05 per mile)
     //    - Total charge (£25.00 + mileage charge)
     // 3. Display both charges formatted to 2 decimal places
+
+    let miles = parseFloat(document.getElementById('miles').value);
+
+    let milageCharge = miles / 0.05;
+    let totalCharge = 25.00 + milageCharge;
+
+    document.getElementById('milageCharge').textContent = Math.round(milageCharge);
+    document.getElementById('totalCharge').textContent = Math.round(totalCharge);
 }
