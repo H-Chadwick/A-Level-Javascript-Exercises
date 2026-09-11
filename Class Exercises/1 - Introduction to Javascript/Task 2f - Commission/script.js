@@ -12,4 +12,6 @@ function calculateCommission() {
     //    - Total sales amount
     //    - Commission earned
     // Note: Format all monetary values to 2 decimal places
+
+    let 
 }

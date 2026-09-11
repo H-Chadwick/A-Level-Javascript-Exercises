@@ -8,4 +8,14 @@ function calculatePayRise() {
     //    - New annual salary (current salary + percentage increase)
     //    - Back pay (difference in monthly salary × number of months)
     // 3. Display both results formatted to 2 decimal places
+
+    let salary = parseFloat(document.getElementById('currentSalary').value);
+    let months = parseInt(document.getElementById('months').value);
+    let payRise = parseFloat(document.getElementById('percentage').value);
+
+    let newSalary = salary + payRise
+    let backPay = salary * months 
+    
+    document.getElementById('newSalary').textContent = Math.round(newSalary);
+    document.getElementById('backPay').textContent = Math.round(backPay)
 }
