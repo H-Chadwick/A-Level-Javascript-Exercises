@@ -15,6 +15,6 @@ function calculateHypotenuse() {
 
     let hypotenuse =  Math.sqrt(sideA * sideA + sideB * sideB);
 
-    document.getElementById('hypotenuse').textContent = hypotenuse
+    document.getElementById('hypotenuse').textContent = Math.round(hypotenuse)
 
 }
