@@ -17,9 +17,11 @@ function updateColors() {
     // Hint: To change styles use element.style.property = value
     // Example: element.style.color = '#FF0000'
 
-    document.getElementById('headingColor').addEventListener('click', function() {
+    document.getElementById('headingColor').addEventListener('input', function() {
         titleBox.style.backgroundColor = '#00000000'
     });
 
-    document.getElementById('paragraphBg').addEventListener()
+    document.getElementById('paragraphBg').addEventListener('inpurt', function(){
+        titleBox.style.backgroundColor = '#ffffff'
+    })
 }
