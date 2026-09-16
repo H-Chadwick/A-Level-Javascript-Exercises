@@ -69,11 +69,16 @@ function calculateMortgage() {
     // n = Total Number of Payments (25 years × 12)
     let monthlyInterestRate = baseInterest / 12
     let numberOfPayment = 25 * 12
-    let monthlyFormula = loanAmount[monthlyInterestRate(1 + baseInterest) ^ numberOfPayment]/[(1 + monthlyInterestRate)^numberOfPayment - 1]
+    let step1 = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), numberOfPayment)
+    let step2 = Math.pow((1 + monthlyInterestRate), numberOfPayment) - 1
+    let monthlyFormula = loanAmount * step1 / step2
+    console.log(step1)
+    console.log(step2)
+    console.log(monthlyFormula)
     // TODO: Calculate total amount repayable
     const totalRepayable = monthlyFormula * numberOfPayment
     // TODO: Display all results
-    document.getElementById('monthlyPayment').value = monthlyFormula.toFixed(2);
-    document.getElementById('totalRepayable').value = totalRepayable.toFixed(2);
-    
+    document.getElementById('monthlyPayment').textContent = monthlyFormula.toFixed(2);
+    document.getElementById('totalRepayable').textContent = totalRepayable.toFixed(2);
+
 }
