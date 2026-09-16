@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to calculate the total ticket cost
 function calculateTotal() {
     // TODO: Get values from all input fields
-    
+    let adu
     // TODO: Calculate base costs
     // Adult: £12.00
     // Child: £8.00
