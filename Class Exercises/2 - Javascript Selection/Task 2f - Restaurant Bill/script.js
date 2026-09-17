@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function calculateBill() {
     // TODO: Get all input values
     let foodTotal = parseFloat(document.getElementById('foodTotal').value);
+    console.log(foodTotal)
     let drinksTotal = parseFloat(document.getElementById('drinksTotal').value);
     let diners = parseFloat(document.getElementById('diners').value);
     let kidsCount = parseFloat(document.getElementById('kidsCount').value);
@@ -20,6 +21,12 @@ function calculateBill() {
     let totalPeople = diners + kidsCount
     let mandatory
     let discountTime
+    let freeKids = 1
+    let discountDay
+    let costPerPerson
+    let subtotal
+    let finalDiscount
+    let finalTotal
     // TODO: Calculate service charge based on group size
     // 1-4: No mandatory charge
     // 5-8: 10%
@@ -35,7 +42,8 @@ function calculateBill() {
     // Before 5 PM: 20% off food
     // 5-7 PM: 25% off drinks
     // After 10 PM: 10% off total
-    if (time < 17) {
+    console.log(time)
+    if (time <= 17) {
         discountTime = (foodTotal) * 0.8
     } else if (time >17 && time < 19) {
         discountTime = (drinksTotal) * 0.75
@@ -45,12 +53,13 @@ function calculateBill() {
     // TODO: Apply special offers
     // Mon-Thu: Second main half price
     // Sunday: Kids eat free (max 2 per adult)
-    if (day === 'Monday' || day === 'Tuesday' || day === 'Wednesday' || day === 'Thurday') {
-        let disocuntDay = foodTotal * 0.5
-    } else if (day === 'Sunday') {
-        let freeKids = Math.min(kidsCount, diners * 2);
+    console.log(day)
+    if (day === 'monday' || day === 'tuesday' || day === 'wednesday' || day === 'thurday') {
+        discountDay = foodTotal * 0.5
+    } else if (day === 'sunday') {
+        freeKids = Math.min(kidsCount, diners * 2);
         if (kidsCount > 0) {
-            let costPerPerson = foodTotal / totalPeople;
+            costPerPerson = foodTotal / totalPeople;
             foodTotal = foodTotal - (freeKids * costPerPerson);
         }
     }
@@ -60,18 +69,25 @@ function calculateBill() {
     // Gold: 15% off
     let loyaltyRate = 0
     if (loyaltyCard === 'Bronze') {
-        loyaltyRate = 0.05;
+        loyaltyRate = 0.95;
     } else if (loyaltyCard === 'Silver') {
-        loyaltyCard = 0.10;
+        loyaltyCard = 0.9;
     } else if (loyaltyCard === 'Gold') {
-        loyaltyCard = 0.15;
+        loyaltyCard = 0.85;
     }
     // TODO: Calculate subtotal
-    let subtotal = foodTotal + drinksTotal
+    subtotal = foodTotal + drinksTotal
+    finalDiscount = mandatory * discountTime * freeKids * loyaltyRate
+    finalTotal = subtotal * finalDiscount
+    console.log(finalTotal)
+    console.log(subtotal)
+    console.log(finalDiscount)
     document.getElementById('subtotal').textContent = `Subtotal: ${subtotal}`;
     // TODO: Create breakdown of all discounts applied
-    document.getElementById('discounts').textContent = `Discounts: ${disocuntTime} && ${discountDay} && ${freeKids}`; 
+    document.getElementById('discounts').textContent = `Discounts: ${discountTime} ${discountDay} ${freeKids}`; 
     document.getElementById('serviceCharge').textContent = `Service Charge: ${mandatory}`
     // TODO: Calculate and display final total
-    document.getElementById('finalTotal').textContent = `Final Total is: ${}`
+    document.getElementById('finalTotal').textContent = `Final Total is: ${finalTotal}`
+
+
 }
