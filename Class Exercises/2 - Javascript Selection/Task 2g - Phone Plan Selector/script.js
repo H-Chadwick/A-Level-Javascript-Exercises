@@ -14,7 +14,9 @@ function comparePlans() {
     let texts = parseInt(document.getElementById('texts').value);
     let data = parseInt(document.getElementById('data').value);
     let contract = document.getElementById('contract').value;
+    let extraMinutes
     let extraData
+    let extraMinutesCalc 
     // TODO: Define plan limits and costs
     const plans = {
         basic: {
@@ -51,8 +53,9 @@ function comparePlans() {
     // Extra minutes: 10p per minute
     // Extra data: £5 per GB
     if (contract === 'basicPlan' + minutes > 500) {
-        extraData = minutes - 500;
-    }
+        extraMinutes = minutes - 500;
+        extraMinutesCalc = extraMinutes * 0.1
+    } else if (contract === 'standardPlan')
     // TODO: Apply contract length discounts
     // 24 months: 10% off
     // 36 months: 15% off

@@ -108,3 +108,5 @@ function calculateBill() {
     document.getElementById('finalTotal').textContent =
         `Final Total: £${finalTotal.toFixed(2)}`;
 }
+
+//THAT WAS THE MOST PAINFULL PROGRAM EVER WRITTEN - H.CHADWICK
