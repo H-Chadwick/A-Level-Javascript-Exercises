@@ -10,7 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to compare different phone plans
 function comparePlans() {
     // TODO: Get usage values from inputs
-    
+    let minutes = parseFloat(document.getElementById('mintes').value);
+    let texts = parseInt(document.getElementById('texts').value);
+    let data = parseInt(document.getElementById('data').value);
+    let contract = document.getElementById('contract').value;
+    let extraData
     // TODO: Define plan limits and costs
     const plans = {
         basic: {
@@ -46,7 +50,9 @@ function comparePlans() {
     // TODO: Calculate costs for each plan including overages
     // Extra minutes: 10p per minute
     // Extra data: £5 per GB
-    
+    if (contract === 'basicPlan' + minutes > 500) {
+        extraData = minutes - 500;
+    }
     // TODO: Apply contract length discounts
     // 24 months: 10% off
     // 36 months: 15% off

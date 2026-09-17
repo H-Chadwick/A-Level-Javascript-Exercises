@@ -21,7 +21,7 @@ function calculateBill() {
     let totalPeople = diners + kidsCount
     let mandatory
     let discountTime
-    let freeKids = 1
+    let freeKids
     let discountDay
     let costPerPerson
     let subtotal
@@ -38,6 +38,7 @@ function calculateBill() {
     } else if(totalPeople > 8) {
         mandatory = 1.15
     }
+    console.log(mandatory)
     // TODO: Apply time-based discounts
     // Before 5 PM: 20% off food
     // 5-7 PM: 25% off drinks
@@ -82,7 +83,7 @@ function calculateBill() {
     console.log(finalTotal)
     console.log(subtotal)
     console.log(finalDiscount)
-    document.getElementById('subtotal').textContent = `Subtotal: ${subtotal}`;
+    document.getElementById('subtotal').textContent = `Subtotal: ${subtotal}`; 
     // TODO: Create breakdown of all discounts applied
     document.getElementById('discounts').textContent = `Discounts: ${discountTime} ${discountDay} ${freeKids}`; 
     document.getElementById('serviceCharge').textContent = `Service Charge: ${mandatory}`
