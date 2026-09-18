@@ -100,5 +100,8 @@ function comparePlans() {
     // TODO: Display comparison of all plans
 
     // TODO: Show recommendation with potential savings
-    document.getElementById('recommendation').textContent = `Recommended Plan: ${text.bold(bestValue) }` + ` Discounts Applied: ${contractDiscount}` + `%`;
+    document.getElementById('recommendation').textContent = `Recommended Plan: ${bestValue}` + ` Discounts Applied: ${contractDiscount}` + `%`;
+    if (bestValue === 'basicPlan') {
+        
+    }
 }
