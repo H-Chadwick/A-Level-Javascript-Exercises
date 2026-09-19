@@ -102,6 +102,12 @@ function comparePlans() {
     // TODO: Show recommendation with potential savings
     document.getElementById('recommendation').textContent = `Recommended Plan: ${bestValue}` + ` Discounts Applied: ${contractDiscount}` + `%`;
     if (bestValue === 'basicPlan') {
-        
+        document.getElementById('recommendation').textContent = `Cost of Basic Plan is £ ${15}`
+    } else if (bestValue === 'standardPlan') {
+        document.getElementById('recommendation').textContent = `Cost of Standard Plan is £ ${25}`
+    } else if (bestValue ==='premiumPlan') {
+        document.getElementById('recommendation').textContent = `Cost of Premium Plan is £ ${35}`
+    } else if (bestValue === 'ultimatePlan') {
+        document.getElementById('recommendation').textContent = `Cost of Ultimate Plan is £ ${45}`
     }
 }
