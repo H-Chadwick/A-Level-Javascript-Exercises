@@ -19,20 +19,33 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to calculate holiday package cost
 function calculatePackage() {
     // TODO: Get all input values
-    
+    let roomType = document.getElementById('roomType').value;
+    let guests = parseInt(document.getElementById('guests').value);
+    let checkIn = document.getElementById('checkIn').value;
+    let checkOut = document.getElementById('checkOut').value;
+    let boardType = document.getElementById('boardType').value;
+    let numberNights
+    let baseRoomCost
+    console.log(checkIn)
     // TODO: Calculate number of nights
-    
+    numberNights = checkOut - checkIn
     // TODO: Get base room cost
     // Standard: £75
     // Premium: £120
     // Suite: £200
-    
+    if (roomType === 'standard') {
+        baseRoomCost = 75
+    } else if (roomType === 'Premium') {
+        baseRoomCost = 120
+    } else if (roomType === 'Suite') {
+        baseRoomCost = 200
+    }
     // TODO: Apply seasonal multiplier based on check-in month
     // Peak (Jul-Aug): ×1.5
     // High (Jun,Sep): ×1.3
     // Mid (Apr,May,Oct): ×1.1
     // Low (rest): ×1.0
-    
+
     // TODO: Calculate board costs per person per day
     // Self Catering: £0
     // Bed & Breakfast: £10
