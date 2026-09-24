@@ -17,7 +17,9 @@ function generateSequence() {
 
     // Check if step is positive
     // Check if end is greater than start
-    
+    if (step >=0 && end > start) {
+        output.innerHTML = "Secquence is valid"
+    }
     // TODO: Create array to store sequence
     let sequence = [];
     
@@ -31,6 +33,7 @@ function generateSequence() {
     
     // TODO: Display the sequence
     // Join the numbers with arrows between them
+    
 }
 
 // Initialize the page
