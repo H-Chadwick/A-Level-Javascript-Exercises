@@ -12,7 +12,11 @@ function startCountdown() {
     // Check if values are valid numbers
     // Check if start number is positive
     // Check if delay is at least 100ms
-    
+    if (isNaN(startNum) || isNaN(delay)) {
+        display.innerHTML = "Check numbers are valid"
+    } else if (start >=1) {
+        display.innerHTML = "Start is positive"
+    } else if ()
     // TODO: Disable button during countdown
     
     // TODO: Create the countdown loop
