@@ -1,2 +1,22 @@
-// Add your event listener and while loop code here
-// When the button is clicked, display numbers 1 to N in the output area using a while loop
+const countBtn = document.getElementById('countBtn');
+const output = document.getElementById('output');
+const numberInput = document.getElementById('numberInput');
+
+countBtn.addEventListener('click', () => {
+    countUp();
+});
+
+function countUp() {
+    let count = 1;
+    let result = '';
+
+    // Get the number the user entered
+    let N = parseInt(numberInput.value);
+
+    while (count <= N) {
+        result += count + '<br>';
+        count++;
+    }
+
+    output.innerHTML = result;
+}
