@@ -15,7 +15,7 @@ function push(value) {
     return -1;
   } else {
     top = top + 1;
-    stack[top] = ___________;
+    stack[top] = value;
     return top;
   }
 }
@@ -28,7 +28,7 @@ function pop() {
     return -1;
   } else {
     var popped = stack[top];
-    stack[top] = ___________;
+    stack[top] = undefined;
     top = top - 1;
     return popped;
   }
