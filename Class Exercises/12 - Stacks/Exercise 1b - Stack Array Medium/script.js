@@ -1,41 +1,40 @@
 // =============================
 // Stack implemented with an array (manual push/pop)
 // =============================
+document.addEventListener("DOMContentLoaded", function() {
 
 // --- Stack setup ---
 const STACK_LIMIT = 10; // Maximum stack size
 const stack = [];
 let top = -1; // Index of the top element
 
-// --- Push operation ---
 function push(value) {
-  // TODO: Fill in the blanks to complete the push logic
-  if (___________) {
+// --- Push operation ---
+  if (top >= STACK_LIMIT - 1) {
     // Stack is full
     return -1;
   } else {
-    top = ___________;
-    stack[top] = ___________;
+    top = top + 1;
+    stack[top] = value;
     return top;
   }
 }
 
-// --- Pop operation ---
 function pop() {
-  // TODO: Fill in the blanks to complete the pop logic
-  if (___________) {
+// --- Pop operation ---
+  if (top === -1) {
     // Stack is empty
     return -1;
   } else {
-    var popped = ___________;
-    stack[top] = ___________;
-    top = ___________;
+    var popped = stack[top];
+    stack[top] = undefined;
+    top = top - 1;
     return popped;
   }
 }
 
-// --- Peek operation ---
 function peek() {
+// --- Peek operation ---
   if (top >= 0) {
     return stack[top];
   } else {
@@ -43,8 +42,8 @@ function peek() {
   }
 }
 
-// --- Clear operation ---
 function clear() {
+// --- Clear operation ---
   var i = 0;
   while (i <= top) {
     stack[i] = undefined;
@@ -53,8 +52,8 @@ function clear() {
   top = -1;
 }
 
-// --- Display stack contents ---
 function updateOutput() {
+// --- Display stack contents ---
   var contents = [];
   var i = 0;
   while (i <= top) {
@@ -65,8 +64,8 @@ function updateOutput() {
   document.getElementById("output").innerText = out;
 }
 
-// --- Push button handler ---
 document.getElementById("btnPush").onclick = function() {
+// --- Push button handler ---
   var value = document.getElementById("value").value;
   if (value === "") {
     return;
@@ -78,8 +77,8 @@ document.getElementById("btnPush").onclick = function() {
   }
 };
 
-// --- Pop button handler ---
 document.getElementById("btnPop").onclick = function() {
+// --- Pop button handler ---
   var popped = pop();
   updateOutput();
   if (popped === -1) {
@@ -89,8 +88,8 @@ document.getElementById("btnPop").onclick = function() {
   }
 };
 
-// --- Peek button handler ---
 document.getElementById("btnPeek").onclick = function() {
+// --- Peek button handler ---
   var topValue = peek();
   updateOutput();
   if (topValue === -1) {
@@ -100,10 +99,12 @@ document.getElementById("btnPeek").onclick = function() {
   }
 };
 
-// --- Clear button handler ---
 document.getElementById("btnClear").onclick = function() {
+// --- Clear button handler ---
   clear();
   updateOutput();
 };
 
-updateOutput();
+
+});
+//updateOutput();
